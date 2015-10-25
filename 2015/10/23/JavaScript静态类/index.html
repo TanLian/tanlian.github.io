@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript面向对象详解 | TanLian&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="静态类，有很多特性。如不能有构造器、不能被继承、仅包含静态成员等，但是有一个我认为是最重要的特性，那就是不能实例化，也就是不能通过new创建出实例。JavaScript静态类当然也有这个特性，我们就从这个出发点来谈谈JavaScript的静态类。  首先来看下面代码段：123456var People = &amp;#123;　　　　name : &quot;Tan Lian&quot;,　　　　eat: function(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面向对象详解">
+<meta property="og:url" content="http://tanlian.co/2015/10/23/JavaScript静态类/index.html">
+<meta property="og:site_name" content="TanLian's blog">
+<meta property="og:description" content="静态类，有很多特性。如不能有构造器、不能被继承、仅包含静态成员等，但是有一个我认为是最重要的特性，那就是不能实例化，也就是不能通过new创建出实例。JavaScript静态类当然也有这个特性，我们就从这个出发点来谈谈JavaScript的静态类。  首先来看下面代码段：123456var People = &amp;#123;　　　　name : &quot;Tan Lian&quot;,　　　　eat: function(">
+<meta property="og:updated_time" content="2015-10-25T02:48:28.951Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript面向对象详解">
+<meta name="twitter:description" content="静态类，有很多特性。如不能有构造器、不能被继承、仅包含静态成员等，但是有一个我认为是最重要的特性，那就是不能实例化，也就是不能通过new创建出实例。JavaScript静态类当然也有这个特性，我们就从这个出发点来谈谈JavaScript的静态类。  首先来看下面代码段：123456var People = &amp;#123;　　　　name : &quot;Tan Lian&quot;,　　　　eat: function(">
+  
+    <link rel="alternative" href="/atom.xml" title="TanLian&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.useso.com/css?family=Lato:400,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?93ad022bdceb91c42b950068a2706c41";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TanLian&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">爱技术、爱分享</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">干货</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tanlian.co"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript静态类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/23/JavaScript静态类/" class="article-date">
+  <time datetime="2015-10-23T08:20:36.000Z" itemprop="datePublished">2015-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript面向对象详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  静态类，有很多特性。如不能有构造器、不能被继承、仅包含静态成员等，但是有一个我认为是最重要的特性，那就是不能实例化，也就是不能通过new创建出实例。JavaScript静态类当然也有这个特性，我们就从这个出发点来谈谈JavaScript的静态类。<br>  首先来看下面代码段：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> People = &#123;</span><br><span class="line">　　　　name : <span class="string">"Tan Lian"</span>,</span><br><span class="line">　　　　eat: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">　　　　　　　　alert(<span class="string">"Hello, I am eating."</span>);</span><br><span class="line">　　　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>People就是一个静态类。很多人可能会产生疑问了：这是静态类吗？这连类都不是吧？我很高兴大家能够提出这种疑问，这种在学习的过程中带着质疑的态度是极好的，说明你在认真思考；但是同时也说明大家的思想深深的被以前的知识给局限了。好了，废话不多说，这也是一种类，这是一种用<strong>极简主义法</strong>定义的类，这种思想是由荷兰程序员Gabor de Mooij提出的。我们可以通过People.name来访问name属性，通过People.eat()来运行eat方法。<br>    在这里，People既是一个对象，也是一个类，只是这个类不能被实例化而已。这样定义类就有点类似于json对象格式，也类似于Python的字典。那么知道这些有什么用呢？没啥鸟用^_^，知道People是个对象就足够了。<br>    来看定义静态类的第二种形式：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> People = (<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">           alert(<span class="string">"Hello"</span>);</span><br><span class="line">　　　　    <span class="keyword">var</span> age = <span class="number">23</span>;　　<span class="comment">//私有属性</span></span><br><span class="line">　　　　    <span class="keyword">var</span> eat = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;　<span class="comment">//私有方法</span></span><br><span class="line">　　　　　　　　alert(<span class="string">"Hello, I am eating."</span>);</span><br><span class="line">　　　　    &#125;　</span><br><span class="line">        　　　<span class="keyword">return</span> &#123;</span><br><span class="line">        　　　　　　　get_age : <span class="string">"You are"</span> + age + <span class="string">"years old."</span>,　<span class="comment">//公有属性</span></span><br><span class="line">        　　　　　　　eat_wrap : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;   <span class="comment">//公有方法</span></span><br><span class="line">        　　　　　　　　　　　eat();　</span><br><span class="line">        　　　　　　　&#125;</span><br><span class="line">        　　　&#125;</span><br><span class="line">           &#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>第一次见到这样的代码可能读者有点晕，（我第一次见到的时候就是这样^_^），不急，我们慢慢将其拆解。<br>首先来看这种形式：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">()</span><span class="collection">&#123;&#125;</span>)</span><span class="list">()</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码是IIFE，也就是匿名函数自调用。先稍微解释下什么是匿名函数。匿名函数，顾名思义就是没有函数名的函数。看下面代码：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span><span class="params">()</span></span>&#123;&#125;	<span class="comment">//不是匿名函数，函数名为A</span></span><br><span class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;	<span class="comment">//是匿名函数。</span></span><br></pre></td></tr></table></figure>
+<p>好，知道什么是匿名函数之后，那么什么是匿名函数自调用呢？以前我们在执行某个函数之前，一定要先定义这个函数，如：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span><span class="params">()</span><span class="comment">&#123;</span><br><span class="line">	alert("I am function A.");</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//执行函数A</span></span><br><span class="line"><span class="title">A</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure>
+<p>也就是函数声明和函数执行是分开的。这种写法在某些时候显得比较繁琐，而且这种写法会直接污染全局命名空间。那么有没有办法做到“在声明一个函数的同时执行该函数”呢？肯定是有的，那就是IIFE，我们看下面代码：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">()</span><span class="collection">&#123;&#125;</span>)</span><span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>第一个括号里面包含的是一个匿名函数，最后一个括号就表示要<strong>立即执行</strong>该匿名函数。比如说：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">()</span><span class="collection">&#123;</span><br><span class="line">	alert<span class="list">(<span class="string">"Hello, This is IIFE"</span>)</span><span class="comment">;</span></span><br><span class="line">&#125;</span>)</span><span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>就会立即打印出Hello, This is IIFE这句话。当然也可以是下面这种写法：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">()</span><span class="collection">&#123;</span><br><span class="line">	alert<span class="list">(<span class="string">"Hello, This is IIFE"</span>)</span><span class="comment">;</span></span><br><span class="line">&#125;</span><span class="list">()</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>那么这两种写法有没有区别呢？从结果上来说，没有区别，都是立即执行里面的匿名函数。如果你硬要知道这两种写法的细微差别，建议自己去查找相关资料^_^。<br>好了，我们回到最初的代码上来，也就是var People=…那段代码。再看这段代码，肯定就清楚多了。它会立即执行里面的匿名函数，它会先打印出Hello；然后定义了一个私有属性age，并赋值为23；然后定义了一个私有方法eat。这里为什么说age和eat都是私有的，因为你在函数外面是访问不到他们的，如People.age取不到age属性，People.eat()不能执行eat方法。那么怎么定义公有的属性和方法呢？来看下面一段代码：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;    <span class="comment">//公有属性</span></span><br><span class="line">        <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">"I am eating."</span>);&#125;;   <span class="comment">//公有方法</span></span><br><span class="line">        <span class="keyword">var</span> age = <span class="number">23</span>;    <span class="comment">//私有属性</span></span><br><span class="line">        <span class="keyword">var</span> run = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;alert(<span class="string">"I am running."</span>);&#125;;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">"Tan Lian"</span>);</span><br><span class="line">     alert(p.name);  <span class="comment">//打印Tan Lian</span></span><br><span class="line">     p.eat();    <span class="comment">//打印I am eating.</span></span><br><span class="line">     alert(p.age);   <span class="comment">//访问不到，打印undefined</span></span><br><span class="line">     p.run();    <span class="comment">//访问不到</span></span><br></pre></td></tr></table></figure>
+<p>好，知道了这个之后，我们再次回到var People=…那段代码上来。定义了两个私有变量之后，立马来了个return，我们来看看return了什么。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="rules">&#123;</span><br><span class="line">     　　　　　　　<span class="rule"><span class="attribute">get_age </span>:<span class="value"> <span class="string">"You are"</span> + age + <span class="string">"years old."</span>,　//公有属性</span><br><span class="line">     　　　　　　　eat_wrap : <span class="function">function</span>()&#123;   //公有方法</span><br><span class="line">     　　　　　　　　　　　<span class="function">eat</span>()</span></span>;　</span><br><span class="line">     　　　　　　　&#125;</span></span><br><span class="line">     　　　&#125;</span><br></pre></td></tr></table></figure>
+<p>这货不就是我们第一种定义静态类的方式吗？没错，就是它。因为他是在函数内部，所以他能访问私有属性age和私有方法eat。我们把他返回了，然后在函数外部用People给接收了。所以People实际上就是他。<br>我们可以用<code>People.get_age</code>间接访问私有属性age，用<code>People.eat_wrap()</code>间接执行eat方法。我们要学会这种思想，就是在function里定义一些私有属性和方法，不直接对外公开，然后通过return语句返回一些特定的属性和方法，这些属性和方法是对外公开的，这就很好的保护了私有属性和方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanlian.co/2015/10/23/JavaScript静态类/" data-id="cig5x24cj0000vcwx4q1aicsq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
+
+      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/24/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/23/JavaScript面向对象详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript面向对象详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015/10/23/JavaScript静态类/" data-title="JavaScript面向对象详解" data-url="http://tanlian.co/2015/10/23/JavaScript静态类/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tanlian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5游戏开发/">H5游戏开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/H5游戏开发/" style="font-size: 10px;">H5游戏开发</a> <a href="/tags/JavaScript高级编程/" style="font-size: 20px;">JavaScript高级编程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/23/JavaScript静态类/">JavaScript面向对象详解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/23/JavaScript面向对象详解/">JavaScript面向对象详解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/22/my-new-post/">my new post</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Tan Lian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">干货</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+
+<script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
