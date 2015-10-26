@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>TanLian&#39;s blog</title>
+  <title>JavaScript类的继承 | TanLian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="专注前后端、WEB开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TanLian's blog">
-<meta property="og:url" content="http://tanlian.co/index.html">
+  <meta name="description" content="1.原型链继承    核心思想：将子类的原型（prototype）指向父类的对象。12345678910111213function People()&amp;#123;       this.name = &apos;Tan Lian&apos;;       this.eat = function()&amp;#123;           return &quot;I am eating.&quot;;       &amp;#125;;   &amp;#125">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript类的继承">
+<meta property="og:url" content="http://tanlian.co/2015/10/26/JavaScript类的继承/index.html">
 <meta property="og:site_name" content="TanLian's blog">
-<meta property="og:description" content="专注前后端、WEB开发">
+<meta property="og:description" content="1.原型链继承    核心思想：将子类的原型（prototype）指向父类的对象。12345678910111213function People()&amp;#123;       this.name = &apos;Tan Lian&apos;;       this.eat = function()&amp;#123;           return &quot;I am eating.&quot;;       &amp;#125;;   &amp;#125">
+<meta property="og:image" content="http://img.blog.csdn.net/20151026192514323">
+<meta property="og:image" content="http://img.blog.csdn.net/20151026200933514">
+<meta property="og:updated_time" content="2015-10-26T12:27:11.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TanLian's blog">
-<meta name="twitter:description" content="专注前后端、WEB开发">
+<meta name="twitter:title" content="JavaScript类的继承">
+<meta name="twitter:description" content="1.原型链继承    核心思想：将子类的原型（prototype）指向父类的对象。12345678910111213function People()&amp;#123;       this.name = &apos;Tan Lian&apos;;       this.eat = function()&amp;#123;           return &quot;I am eating.&quot;;       &amp;#125;;   &amp;#125">
   
     <link rel="alternative" href="/atom.xml" title="TanLian&#39;s blog" type="application/atom+xml">
   
@@ -76,9 +79,7 @@ var _hmt = _hmt || [];
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-JavaScript类的继承" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JavaScript类的继承" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/26/JavaScript类的继承/" class="article-date">
   <time datetime="2015-10-26T12:27:36.000Z" itemprop="datePublished">2015-10-26</time>
@@ -91,8 +92,8 @@ var _hmt = _hmt || [];
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/26/JavaScript类的继承/">JavaScript类的继承</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript类的继承
     </h1>
   
 
@@ -129,197 +130,40 @@ var _hmt = _hmt || [];
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-JavaScript静态类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/25/JavaScript静态类/" class="article-date">
-  <time datetime="2015-10-25T02:51:36.000Z" itemprop="datePublished">2015-10-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/25/JavaScript静态类/">JavaScript静态类</a>
-    </h1>
+    <a href="/2015/10/25/JavaScript静态类/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript静态类</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  静态类，有很多特性。如不能有构造器、不能被继承、仅包含静态成员等，但是有一个我认为是最重要的特性，那就是不能实例化，也就是不能通过new创建出实例。JavaScript静态类当然也有这个特性，我们就从这个出发点来谈谈JavaScript的静态类。<br>  首先来看下面代码段：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> People = &#123;</span><br><span class="line">　　　　name : <span class="string">"Tan Lian"</span>,</span><br><span class="line">　　　　eat: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">　　　　　　　　alert(<span class="string">"Hello, I am eating."</span>);</span><br><span class="line">　　　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/25/JavaScript静态类/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cig7x6glr000aa8wxn9awikof" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
-
-      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/24/hello-world/" class="article-date">
-  <time datetime="2015-10-24T12:39:06.866Z" itemprop="datePublished">2015-10-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/24/hello-world/" data-id="cig7x6gll0007a8wx0eslvfxq" class="article-share-link">Share</a>
-      
-      
-      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript面向对象详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/23/JavaScript面向对象详解/" class="article-date">
-  <time datetime="2015-10-23T08:20:36.000Z" itemprop="datePublished">2015-10-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/23/JavaScript面向对象详解/">JavaScript面向对象详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  一提到“<strong>面向对象</strong>”这个概念，我脑海里立马就联想到了Java、C#里面的面向对象，完全不知道JavaScript里也有面向对象的概念。其实深究的话，JavaScript也是有面向对象的。以前看到很多人都说“JavaScript不是一种真正的面向对象的语言，只是一种基于对象的语言”，而他们得出此结论的原因仅仅是因为JavaScript没有”class”这个关键字。当然，如果是按照“有没有class”这个标准来判断该语言是不是一种面向对象的语言的话，那我无话可说。但是，真的有这个标准吗？答案是没有的。JavaScript虽然没有class这个关键字，但是他有一套自己的实现面向对象的机制，而且我认为这种机制甚至更优雅。</p>
-<p>  先来简单回忆一下Java、C#里的面向对象，这也是我们最熟悉的面向对象。它们都是基于class这个关键字来实现的面向对象，无论是封装、继承还是多态，都离不开class,所以又称它们为class-based。<br>  而JavaScript是基于原型（<strong><em>prototype-based</em></strong>）的面向对象。“面向对象”有一个很重要的概念，就是“<strong>一切事物皆对象</strong>”。（不知怎的，此时我想到了Linux里的“一切皆文件”的思想^_^）。<br>举例说明：</p>
-<pre><code>
-    var str = "我是一个对象";
-    var obj = {name: "Jack，我也是一个对象"};
-    var func = function(){return "我是一个函数，我也是一个对象"};
-    var div1 = document.getElementById("div1"); //**DOM元素，也是一个对象**
-</code></pre>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/23/JavaScript面向对象详解/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/23/JavaScript面向对象详解/" data-id="cig7x6glo0008a8wxd6a3ch35" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
-
-      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-my-new-post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/22/my-new-post/" class="article-date">
-  <time datetime="2015-10-22T06:25:36.000Z" itemprop="datePublished">2015-10-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/22/my-new-post/">my new post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一个尝试">第一个尝试</h2><p>下面是图片<br><img src="http://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Mark" title="GitHub Mark"><br><img src="/img/back1.jpg" alt="Alt text"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/22/my-new-post/" data-id="cig7x6gla0004a8wxm1oenuf0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5游戏开发/">H5游戏开发</a></li></ul>
-
-      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-</section>
+  <section id="comments">
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015/10/26/JavaScript类的继承/" data-title="JavaScript类的继承" data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tanlian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+  </section>
+  </section>
         
           <aside id="sidebar">
   
