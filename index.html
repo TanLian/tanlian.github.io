@@ -100,8 +100,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.原型链继承<br>    核心思想：将子类的原型（prototype）指向父类的对象。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.name = <span class="string">'Tan Lian'</span>;</span><br><span class="line">       <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"I am eating."</span>;</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">   Student.prototype = <span class="keyword">new</span> People(); <span class="comment">//子类的原型指向父类的对象</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> test = <span class="keyword">new</span> Student();</span><br><span class="line">   alert(test.name);   <span class="comment">//打印mike</span></span><br><span class="line">   alert(test.eat());<span class="comment">//打印I am eating.</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20151026192514323" alt="这里写图片描述"><br>
+        <p><strong>1.原型链继承</strong><br>    核心思想：将子类的原型（prototype）指向父类的对象。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.name = <span class="string">'Tan Lian'</span>;</span><br><span class="line">       <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"I am eating."</span>;</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">   Student.prototype = <span class="keyword">new</span> People(); <span class="comment">//子类的原型指向父类的对象</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> test = <span class="keyword">new</span> Student();</span><br><span class="line">   alert(test.name);   <span class="comment">//打印mike</span></span><br><span class="line">   alert(test.eat());<span class="comment">//打印I am eating.</span></span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2015/10/26/JavaScript类的继承/#more">阅读全文</a>
@@ -110,7 +109,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/" data-id="cig7xfoed0000dswxrigmaxgc" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/" data-id="cig7xrgbj0000jcwxy17wa9d4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
@@ -155,7 +154,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cig7xfofn000adswxkzupf9mo" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cig7xrgdh000ajcwxltharg6q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
@@ -204,7 +203,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/24/hello-world/" data-id="cig7xfof80007dswx1b72ml7a" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/24/hello-world/" data-id="cig7xrgdb0007jcwxxhezx2nl" class="article-share-link">Share</a>
       
       
       <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
@@ -254,7 +253,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/23/JavaScript面向对象详解/" data-id="cig7xfof80008dswx1xl713nl" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/23/JavaScript面向对象详解/" data-id="cig7xrgde0008jcwxfrnlgfql" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
@@ -295,7 +294,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/22/my-new-post/" data-id="cig7xfof80004dswxgugz0vt1" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/22/my-new-post/" data-id="cig7xrgd60004jcwxskbsa4bu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5游戏开发/">H5游戏开发</a></li></ul>
