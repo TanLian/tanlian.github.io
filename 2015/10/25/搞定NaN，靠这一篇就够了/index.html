@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript静态类 | TanLian&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NaN, “Not a Number”的缩写，直译过来就是“非数字”。本质上是“非数字的特殊值”，我们把这个词拆分成“非数字”和“特殊值”，“非数字”很好理解，
+123var str = “i am string”;var nl = null;var bl = true;
+上面都是非数字。那么怎么理解“特殊值”呢？“特殊值”就是无法用数字表示的值。好，可能不好理解，先放一放，先看一下NaN的类型，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript静态类">
+<meta property="og:url" content="http://tanlian.co/2015/10/25/搞定NaN，靠这一篇就够了/index.html">
+<meta property="og:site_name" content="TanLian's blog">
+<meta property="og:description" content="NaN, “Not a Number”的缩写，直译过来就是“非数字”。本质上是“非数字的特殊值”，我们把这个词拆分成“非数字”和“特殊值”，“非数字”很好理解，
+123var str = “i am string”;var nl = null;var bl = true;
+上面都是非数字。那么怎么理解“特殊值”呢？“特殊值”就是无法用数字表示的值。好，可能不好理解，先放一放，先看一下NaN的类型，">
+<meta property="og:updated_time" content="2015-11-16T06:51:58.670Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript静态类">
+<meta name="twitter:description" content="NaN, “Not a Number”的缩写，直译过来就是“非数字”。本质上是“非数字的特殊值”，我们把这个词拆分成“非数字”和“特殊值”，“非数字”很好理解，
+123var str = “i am string”;var nl = null;var bl = true;
+上面都是非数字。那么怎么理解“特殊值”呢？“特殊值”就是无法用数字表示的值。好，可能不好理解，先放一放，先看一下NaN的类型，">
+  
+    <link rel="alternative" href="/atom.xml" title="TanLian&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.useso.com/css?family=Lato:400,400italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?93ad022bdceb91c42b950068a2706c41";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TanLian&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">爱技术、爱分享</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">干货</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tanlian.co"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-搞定NaN，靠这一篇就够了" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/25/搞定NaN，靠这一篇就够了/" class="article-date">
+  <time datetime="2015-10-25T02:51:36.000Z" itemprop="datePublished">2015-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript静态类
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>NaN, “<strong>Not a Numbe</strong>r”的缩写，直译过来就是“非数字”。本质上是“<strong>非数字的特殊值</strong>”，我们把这个词拆分成“非数字”和“特殊值”，<br>“非数字”很好理解，</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> str</span> = “i am string”;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> nl</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> bl</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>上面都是非数字。那么怎么理解“特殊值”呢？“特殊值”就是<strong>无法用数字表示的值</strong>。好，可能不好理解，先放一放，先看一下NaN的类型，<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>  <span class="comment">// 'number'</span></span><br></pre></td></tr></table></figure></p>
+<p>很奇怪不是吗？NaN表示非数字，但是他又是number类型，感觉有点矛盾。以前看到有篇文章说，这是JavaScript设计的一个错误，后来ECMAScript沿用了这个错误。不管了，我们只要记住NaN的类型是number这点就行了。那么</p>
+<p><strong><em>什么情况下会出现NaN？</em></strong><br>1.直接定义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nan = <span class="literal">NaN</span>;</span><br></pre></td></tr></table></figure>
+<p>2.<strong>在转换为number的过程中出现了错误</strong>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> str</span> = <span class="string">"i am string"</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> str2int</span> = parseInt(str);   <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+<p>此时str2int就是NaN。<br>前面说过，NaN表示“非数字的特殊值”，而“特殊值就是无法用数字表示的值”。来理解一下这句话，str显然是一个字符串，即string类型，我们用parseInt函数将其转换为number类型。实际上确实是转换成功了，我们可以验证一下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof <span class="function"><span class="title">parseInt</span><span class="params">(str)</span></span>  <span class="comment">//'number'</span></span><br></pre></td></tr></table></figure>
+<p>我们发现转换后的结果是number类型，说明类型确实是转换成功了。但是转换后的值是多少呢？不知道，或者说无法用数字表示，这种情况下就用NaN表示。</p>
+<p><strong><em>如何判断一个值是否是NaN？</em></strong><br>方案一:用 ==<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>);</span><br></pre></td></tr></table></figure></p>
+<p>打印false。很多初学者看到这里可能会大跌眼镜，没错，你没看错，<strong>NaN与所有值都不相等，包括他自己</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> !== <span class="literal">NaN</span>);   <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>parseInt(“i am string”)是NaN，parseFloat(“bbb”)也是NaN，这两个NaN不相等，也是有一定道理的。所以用这个方法来判断一个值是否是NaN是行不通的。<br>方案二：用isNaN()方法<br>从函数名就可以知道，该方法是用来判断一个值是否是NaN的。该方法会<strong>先隐式的将它的参数转换成数字</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="string">"i am string"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>你可以将上面的过程看成两步，第一步，将参数转换成数字，parseInt(“i am string”)或parseFloat(“i am string”),我们知道，这个结果一定是NaN,然后再isNaN(NaN),返回true。所以isNaN(“i am string”)的结果就是true。同理：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'hello'</span>));  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>([<span class="string">'hello'</span>]));    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(&#123;&#125;));       <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>那么什么时候返回false呢？<br>如果第一步（将参数转换成数字）的结果不是NaN，那么就会返回false了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'123'</span>));       <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p>parseInt(‘123’)的结果是123,而123不是NaN，所以调用isNaN(123)的结果自然就是false了。<br>不过这个方案容易给人一种错觉，如isNaN(‘hello’)的结果是NaN，搞得好像字符串’hello’是NaN一样，因此我不建议采用这种方法。<br>方案三： 用 Number.isNaN()方法<br><strong>如果传入的参数是NaN，就返回true,如果不是，就返回false。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>));            <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="built_in">parseInt</span>(<span class="string">'i am string'</span>)));  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="string">'hello'</span>));        <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN([<span class="string">'hello'</span>]));          <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(&#123;&#125;));             <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p>该方法相对于方案二严谨多了，推荐使用这种方式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanlian.co/2015/10/25/搞定NaN，靠这一篇就够了/" data-id="cih1li31u0004k0wx6s9f1zt7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript疑难杂症/">JavaScript疑难杂症</a></li></ul>
+
+      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/26/JavaScript类的继承/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript类的继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/25/JavaScript静态类/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript静态类</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015/10/25/搞定NaN，靠这一篇就够了/" data-title="JavaScript静态类" data-url="http://tanlian.co/2015/10/25/搞定NaN，靠这一篇就够了/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tanlian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript疑难杂症/">JavaScript疑难杂症</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JavaScript疑难杂症/" style="font-size: 10px;">JavaScript疑难杂症</a> <a href="/tags/JavaScript高级编程/" style="font-size: 20px;">JavaScript高级编程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/26/JavaScript类的继承/">JavaScript类的继承</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/25/搞定NaN，靠这一篇就够了/">JavaScript静态类</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/25/JavaScript静态类/">JavaScript静态类</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/23/JavaScript面向对象详解/">JavaScript面向对象详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Tan Lian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">干货</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+
+<script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
