@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | TanLian&#39;s blog</title>
+  <title>TanLian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="专注前后端、WEB开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TanLian's blog">
-<meta property="og:url" content="http://tanlian.co/archives/index.html">
+<meta property="og:url" content="http://tanlian.co/page/2/index.html">
 <meta property="og:site_name" content="TanLian's blog">
 <meta property="og:description" content="专注前后端、WEB开发">
 <meta name="twitter:card" content="summary">
@@ -78,112 +78,62 @@ var _hmt = _hmt || [];
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/12/01/Python计算一段代码的执行时间/" class="archive-article-date">
-  <time datetime="2015-12-01T11:43:36.000Z" itemprop="datePublished">12月 1</time>
+    <article id="post-JavaScript面向对象详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/23/JavaScript面向对象详解/" class="article-date">
+  <time datetime="2015-10-23T08:20:36.000Z" itemprop="datePublished">2015-10-23</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/01/Python计算一段代码的执行时间/">Python计算一段代码的执行时间</a>
+      <a class="article-title" href="/2015/10/23/JavaScript面向对象详解/">JavaScript面向对象详解</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/11/26/Python装饰器/" class="archive-article-date">
-  <time datetime="2015-11-26T12:57:36.000Z" itemprop="datePublished">11月 26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/26/Python装饰器/">Python装饰器</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/11/16/搞定NaN，靠这一篇就够了/" class="archive-article-date">
-  <time datetime="2015-11-16T06:57:36.000Z" itemprop="datePublished">11月 16</time>
-</a>
+        <p>  一提到“<strong>面向对象</strong>”这个概念，我脑海里立马就联想到了Java、C#里面的面向对象，完全不知道JavaScript里也有面向对象的概念。其实深究的话，JavaScript也是有面向对象的。以前看到很多人都说“JavaScript不是一种真正的面向对象的语言，只是一种基于对象的语言”，而他们得出此结论的原因仅仅是因为JavaScript没有”class”这个关键字。当然，如果是按照“有没有class”这个标准来判断该语言是不是一种面向对象的语言的话，那我无话可说。但是，真的有这个标准吗？答案是没有的。JavaScript虽然没有class这个关键字，但是他有一套自己的实现面向对象的机制，而且我认为这种机制甚至更优雅。</p>
+<p>  先来简单回忆一下Java、C#里的面向对象，这也是我们最熟悉的面向对象。它们都是基于class这个关键字来实现的面向对象，无论是封装、继承还是多态，都离不开class,所以又称它们为class-based。<br>  而JavaScript是基于原型（<strong><em>prototype-based</em></strong>）的面向对象。“面向对象”有一个很重要的概念，就是“<strong>一切事物皆对象</strong>”。（不知怎的，此时我想到了Linux里的“一切皆文件”的思想^_^）。<br>举例说明：</p>
+<pre><code>
+    var str = "我是一个对象";
+    var obj = {name: "Jack，我也是一个对象"};
+    var func = function(){return "我是一个函数，我也是一个对象"};
+    var div1 = document.getElementById("div1"); //**DOM元素，也是一个对象**
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2015/10/23/JavaScript面向对象详解/#more">阅读全文</a>
+          </p>
+        
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/16/搞定NaN，靠这一篇就够了/">搞定NaN，靠这一篇就够了</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/10/26/JavaScript类的继承/" class="archive-article-date">
-  <time datetime="2015-10-26T12:27:36.000Z" itemprop="datePublished">10月 26</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanlian.co/2015/10/23/JavaScript面向对象详解/" data-id="cihnbo2dn000c14wx17ey3xti" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/26/JavaScript类的继承/">JavaScript类的继承</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/10/25/JavaScript静态类/" class="archive-article-date">
-  <time datetime="2015-10-25T02:51:36.000Z" itemprop="datePublished">10月 25</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/25/JavaScript静态类/">JavaScript静态类</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
 
-    </header>
+      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </footer>
   </div>
+  
 </article>
+
+
   
   
-    </div></section>
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 </section>
         

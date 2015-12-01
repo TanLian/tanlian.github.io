@@ -78,6 +78,51 @@ var _hmt = _hmt || [];
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python计算一段代码的执行时间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/01/Python计算一段代码的执行时间/" class="article-date">
+  <time datetime="2015-12-01T11:43:36.000Z" itemprop="datePublished">2015-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/01/Python计算一段代码的执行时间/">Python计算一段代码的执行时间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这段时间做了一个课题，其中涉及到了这样一个问题，需要定时采样数据，比如说每隔10s采集一次数据，然后将数据存储到数据库中。思路大概是这样的，先计算采集数据和存储数据一共花了多少时间（假设小于10s），那么剩余的时间都用来sleep。思路很清晰，关键问题是计算采集数据和存储数据的时间。<br>    网上搜了一下，大概是在采集数据前记录一下当前的时间戳，然后存储数据之后又记录一下当前时间戳，两个时间戳相减就得到了采集数据和存储数据所花费的时间，代码整理如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import <span class="built_in">time</span></span><br><span class="line">   <span class="comment">#记录当前时间戳，赋值给start</span></span><br><span class="line">   <span class="built_in">start</span> = <span class="built_in">time</span>.<span class="built_in">time</span>()</span><br><span class="line">   </span><br><span class="line">   <span class="comment">#采集数据</span></span><br><span class="line">   <span class="comment">#......</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">#存储数据</span></span><br><span class="line">   <span class="comment">#......</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">#记录当前时间戳，赋值给end</span></span><br><span class="line">   <span class="function"><span class="keyword">end</span> = <span class="title">time</span>.<span class="title">time</span>()</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (<span class="function"><span class="keyword">end</span> - <span class="title">start</span>) &lt; <span class="title">10</span>:</span></span><br><span class="line">       sleep(<span class="number">10</span>-(<span class="function"><span class="keyword">end</span> - <span class="title">start</span>))</span></span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/01/Python计算一段代码的执行时间/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tanlian.co/2015/12/01/Python计算一段代码的执行时间/" data-id="cihnbo2di000714wxvplavc8t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python详解/">Python详解</a></li></ul>
+
+      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python装饰器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/11/26/Python装饰器/" class="article-date">
@@ -109,7 +154,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/11/26/Python装饰器/" data-id="cihly0ezc0007gcwx8p6gvcf1" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/11/26/Python装饰器/" data-id="cihnbo2dk000a14wxefefrw2w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python详解/">Python详解</a></li></ul>
@@ -156,7 +201,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/11/16/搞定NaN，靠这一篇就够了/" data-id="cihly0eyj0004gcwxaoo9qpby" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/11/16/搞定NaN，靠这一篇就够了/" data-id="cihnbo2cy000414wxkacguqqf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript疑难杂症/">JavaScript疑难杂症</a></li></ul>
@@ -201,7 +246,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/" data-id="cihly0eqa0000gcwxd962ayqd" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/" data-id="cihnbo26a000014wxdjk3ua9b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
@@ -246,7 +291,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cihly0ezi000cgcwxtv2sicz8" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cihnbo2ds000e14wx20zacy0w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
@@ -260,58 +305,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-JavaScript面向对象详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/23/JavaScript面向对象详解/" class="article-date">
-  <time datetime="2015-10-23T08:20:36.000Z" itemprop="datePublished">2015-10-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/23/JavaScript面向对象详解/">JavaScript面向对象详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  一提到“<strong>面向对象</strong>”这个概念，我脑海里立马就联想到了Java、C#里面的面向对象，完全不知道JavaScript里也有面向对象的概念。其实深究的话，JavaScript也是有面向对象的。以前看到很多人都说“JavaScript不是一种真正的面向对象的语言，只是一种基于对象的语言”，而他们得出此结论的原因仅仅是因为JavaScript没有”class”这个关键字。当然，如果是按照“有没有class”这个标准来判断该语言是不是一种面向对象的语言的话，那我无话可说。但是，真的有这个标准吗？答案是没有的。JavaScript虽然没有class这个关键字，但是他有一套自己的实现面向对象的机制，而且我认为这种机制甚至更优雅。</p>
-<p>  先来简单回忆一下Java、C#里的面向对象，这也是我们最熟悉的面向对象。它们都是基于class这个关键字来实现的面向对象，无论是封装、继承还是多态，都离不开class,所以又称它们为class-based。<br>  而JavaScript是基于原型（<strong><em>prototype-based</em></strong>）的面向对象。“面向对象”有一个很重要的概念，就是“<strong>一切事物皆对象</strong>”。（不知怎的，此时我想到了Linux里的“一切皆文件”的思想^_^）。<br>举例说明：</p>
-<pre><code>
-    var str = "我是一个对象";
-    var obj = {name: "Jack，我也是一个对象"};
-    var func = function(){return "我是一个函数，我也是一个对象"};
-    var div1 = document.getElementById("div1"); //**DOM元素，也是一个对象**
-</code></pre>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/23/JavaScript面向对象详解/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/23/JavaScript面向对象详解/" data-id="cihly0ezg000agcwx2ol8srt3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
-
-      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-    </footer>
-  </div>
-  
-</article>
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -323,7 +320,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript疑难杂症/">JavaScript疑难杂症</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python详解/">Python详解</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript疑难杂症/">JavaScript疑难杂症</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python详解/">Python详解</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -332,7 +329,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript疑难杂症/" style="font-size: 10px;">JavaScript疑难杂症</a> <a href="/tags/JavaScript高级编程/" style="font-size: 20px;">JavaScript高级编程</a> <a href="/tags/Python详解/" style="font-size: 10px;">Python详解</a>
+      <a href="/tags/JavaScript疑难杂症/" style="font-size: 10px;">JavaScript疑难杂症</a> <a href="/tags/JavaScript高级编程/" style="font-size: 20px;">JavaScript高级编程</a> <a href="/tags/Python详解/" style="font-size: 15px;">Python详解</a>
     </div>
   </div>
 
@@ -341,7 +338,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -351,6 +348,10 @@ var _hmt = _hmt || [];
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/12/01/Python计算一段代码的执行时间/">Python计算一段代码的执行时间</a>
+          </li>
         
           <li>
             <a href="/2015/11/26/Python装饰器/">Python装饰器</a>
@@ -366,10 +367,6 @@ var _hmt = _hmt || [];
         
           <li>
             <a href="/2015/10/25/JavaScript静态类/">JavaScript静态类</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/23/JavaScript面向对象详解/">JavaScript面向对象详解</a>
           </li>
         
       </ul>
