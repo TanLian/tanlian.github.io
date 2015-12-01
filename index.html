@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这段时间做了一个课题，其中涉及到了这样一个问题，需要定时采样数据，比如说每隔10s采集一次数据，然后将数据存储到数据库中。思路大概是这样的，先计算采集数据和存储数据一共花了多少时间（假设小于10s），那么剩余的时间都用来sleep。思路很清晰，关键问题是计算采集数据和存储数据的时间。<br>    网上搜了一下，大概是在采集数据前记录一下当前的时间戳，然后存储数据之后又记录一下当前时间戳，两个时间戳相减就得到了采集数据和存储数据所花费的时间，代码整理如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import <span class="built_in">time</span></span><br><span class="line">   <span class="comment">#记录当前时间戳，赋值给start</span></span><br><span class="line">   <span class="built_in">start</span> = <span class="built_in">time</span>.<span class="built_in">time</span>()</span><br><span class="line">   </span><br><span class="line">   <span class="comment">#采集数据</span></span><br><span class="line">   <span class="comment">#......</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">#存储数据</span></span><br><span class="line">   <span class="comment">#......</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">#记录当前时间戳，赋值给end</span></span><br><span class="line">   <span class="function"><span class="keyword">end</span> = <span class="title">time</span>.<span class="title">time</span>()</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (<span class="function"><span class="keyword">end</span> - <span class="title">start</span>) &lt; <span class="title">10</span>:</span></span><br><span class="line">       sleep(<span class="number">10</span>-(<span class="function"><span class="keyword">end</span> - <span class="title">start</span>))</span></span><br></pre></td></tr></table></figure></p>
+        <p>这段时间做了一个课题，其中涉及到了这样一个问题，需要定时采样数据，比如说每隔10s采集一次数据，然后将数据存储到数据库中。思路大概是这样的，先计算采集数据和存储数据一共花了多少时间（假设小于10s），那么剩余的时间都用来sleep。思路很清晰，关键问题是计算采集数据和存储数据的时间。<br>    网上搜了一下，大概是在采集数据前记录一下当前的时间戳，然后存储数据之后又记录一下当前时间戳，两个时间戳相减就得到了采集数据和存储数据所花费的时间，代码整理如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import <span class="built_in">time</span></span><br><span class="line"><span class="comment">#记录当前时间戳，赋值给start</span></span><br><span class="line"><span class="built_in">start</span> = <span class="built_in">time</span>.<span class="built_in">time</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#采集数据</span></span><br><span class="line"><span class="comment">#......</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#存储数据</span></span><br><span class="line"><span class="comment">#......</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#记录当前时间戳，赋值给end</span></span><br><span class="line"><span class="function"><span class="keyword">end</span> = <span class="title">time</span>.<span class="title">time</span>()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="function"><span class="keyword">end</span> - <span class="title">start</span>) &lt; <span class="title">10</span>:</span></span><br><span class="line">    sleep(<span class="number">10</span>-(<span class="function"><span class="keyword">end</span> - <span class="title">start</span>))</span></span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2015/12/01/Python计算一段代码的执行时间/#more">阅读全文</a>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/12/01/Python计算一段代码的执行时间/" data-id="cihnbo2di000714wxvplavc8t" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/12/01/Python计算一段代码的执行时间/" data-id="cihnbr7va000708wxuuvjlo7i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python详解/">Python详解</a></li></ul>
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/11/26/Python装饰器/" data-id="cihnbo2dk000a14wxefefrw2w" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/11/26/Python装饰器/" data-id="cihnbr7vd000a08wxkq0zwkth" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python详解/">Python详解</a></li></ul>
@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/11/16/搞定NaN，靠这一篇就够了/" data-id="cihnbo2cy000414wxkacguqqf" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/11/16/搞定NaN，靠这一篇就够了/" data-id="cihnbr7v6000408wxg2zz0kl2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript疑难杂症/">JavaScript疑难杂症</a></li></ul>
@@ -246,7 +246,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/" data-id="cihnbo26a000014wxdjk3ua9b" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/26/JavaScript类的继承/" data-id="cihnbr7tx000008wxx5yxfyn9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
@@ -291,7 +291,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cihnbo2ds000e14wx20zacy0w" class="article-share-link">Share</a>
+      <a data-url="http://tanlian.co/2015/10/25/JavaScript静态类/" data-id="cihnbr7vk000e08wxtwrk22th" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级编程/">JavaScript高级编程</a></li></ul>
